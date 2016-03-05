@@ -1,7 +1,6 @@
 <resources>
     <string name="app_name">Jeev</string>
 
-    <!-- Strings related to login -->
     <string name="prompt_email">Username</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Login</string>
@@ -13,4 +12,8 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_select_path">SelectPath</string>
+    <string name="action_form">Identify an Animal</string>
+    <string name="action_question">Ask a Question</string>
+    <string name="title_activity_form">FormActivity</string>
 </resources>
