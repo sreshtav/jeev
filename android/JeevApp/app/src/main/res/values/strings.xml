@@ -16,4 +16,13 @@
     <string name="action_form">Identify an Animal</string>
     <string name="action_question">Ask a Question</string>
     <string name="title_activity_form">FormActivity</string>
+    <string name="action_watson">Submit</string>
+    <string name="size_label">Size</string>
+    <string name="centimeter">cm</string>
+    <string name="meter">m</string>
+    <string name="inch">inch</string>
+    <string name="feet">feet</string>
+    <string name="body_color_label">Body Color</string>
+    <string name="body_coat_label">Body Coat</string>
+    <string name="pattern_on_body_label">Body Coat</string>
 </resources>
