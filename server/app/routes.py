@@ -1,20 +1,19 @@
 from app import app
 from flask import request
 from models import utils,watson
-from constants import *
-
+from flask import jsonify
 
 @app.route('/v1/user_question')
 def user_question():
         headers = request.headers
-	if free_question_key in headers:
-		question = headers[free_question_key]
-	else:
-		data = {}
-		for key,value in headers:
-			if form_key in key.upper() and key.upper().index(form_key) == 0:
-				key_new = (key.upper().split(form_key)[1].lower())
-				data[key_new] = value
-		question = utils.makequestion(data)
+	question = utils.makequestion(headers)
 	response = watson.askWatson(question)
-       	return response
+	customised_response = jsonify({"answer":response})
+       	return customised_response
+
+@app.errorhandler(500)
+def internal_server_error(error):
+	print "Internal server error ",error
+	response = jsonify({"answer":"Please check back later.Server is experiencing problems"})
+	response.status_code = 200
+	return response
