@@ -1,11 +1,13 @@
 package com.jeev.cs8803.jeevapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.Button;
 
 public class SelectPath extends AppCompatActivity {
 
@@ -19,6 +21,14 @@ public class SelectPath extends AppCompatActivity {
             setSupportActionBar(toolbar);
             getSupportActionBar().setTitle("Jeev");
         }
+
+        Button mEmailSignInButton = (Button) findViewById(R.id.select_form);
+        mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent myIntent = new Intent(getApplicationContext(), FormActivity.class);
+                startActivity(myIntent);
+            }
+        });
     }
 
 }
