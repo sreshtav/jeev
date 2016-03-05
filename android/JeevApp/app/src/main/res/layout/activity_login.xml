@@ -8,7 +8,6 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    android:background="@color/colorbackground"
 
     tools:context="com.jeev.cs8803.jeevapp.LoginActivity">
 
@@ -65,7 +64,6 @@
                     android:imeOptions="actionUnspecified"
                     android:inputType="textPassword"
                     android:maxLines="1"
-                    android:background="@color/colorLabel"
                     android:singleLine="true" />
 
             </android.support.design.widget.TextInputLayout>

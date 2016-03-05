@@ -22,6 +22,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".SelectPath"
+            android:label="@string/title_activity_select_path"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".FormActivity"
+            android:label="@string/title_activity_form"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
