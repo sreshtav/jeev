@@ -247,7 +247,7 @@
             </LinearLayout>
 
             <Button
-                android:id="@+id/select_question"
+                android:id="@+id/submit"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

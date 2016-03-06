@@ -31,8 +31,7 @@ public class AnswerActivity extends AppCompatActivity {
         Button mNextQuestionButton = (Button) findViewById(R.id.next_question);
         mNextQuestionButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
-                Intent random = new Intent(getApplicationContext(), SelectPathActivity.class)
-                        .setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
+                Intent random = new Intent(getApplicationContext(), SelectPathActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);
                 startActivity(random);
             }
         });

@@ -16,16 +16,24 @@ public class SelectPathActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_select_path);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        Button mFormButton = (Button) findViewById(R.id.select_form);
         if (toolbar != null) {
             System.out.println("Toolbar here");
             setSupportActionBar(toolbar);
             getSupportActionBar().setTitle("Jeev");
         }
 
+        Button mFormButton = (Button) findViewById(R.id.select_form);
         mFormButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Intent myIntent = new Intent(getApplicationContext(), FormActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        Button mQuestionButton = (Button) findViewById(R.id.select_question);
+        mQuestionButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent myIntent = new Intent(getApplicationContext(), TextAndAudioActivity.class);
                 startActivity(myIntent);
             }
         });

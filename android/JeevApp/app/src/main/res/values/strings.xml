@@ -35,4 +35,6 @@
     <string name="action_ask_another_question">Ask Another Question</string>
     <string name="action_exit">Exit</string>
     <string name="answer_label">Your answer to the question is - </string>
+    <string name="question_label">Please input your question here - </string>
+    <string name="title_activity_text_and_audio">TextAndAudioActivity</string>
 </resources>
