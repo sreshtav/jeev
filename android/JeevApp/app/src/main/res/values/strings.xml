@@ -24,5 +24,14 @@
     <string name="feet">feet</string>
     <string name="body_color_label">Body Color</string>
     <string name="body_coat_label">Body Coat</string>
-    <string name="pattern_on_body_label">Body Coat</string>
+    <string name="pattern_on_body_label">Pattern on Body</string>
+    <string name="can_swim">Can swim?</string>
+    <string name="eating_habits_label">Eating Habits</string>
+    <string name="teeth_label">Teeth</string>
+    <string name="tail_label">Tail</string>
+    <string name="nearby">Nearby?</string>
+    <string name="carnivore">Carnivore</string>
+    <string name="herbivore">Herbivore</string>
+    <string name="omnivore">Omnivore</string>
+    <string name="detritivore">Detritivore</string>
 </resources>

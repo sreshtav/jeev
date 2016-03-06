@@ -5,4 +5,10 @@
         <item>@string/feet</item>
         <item>@string/meter</item>
     </string-array>
+    <string-array name="eating_habits_list">
+        <item>@string/herbivore</item>
+        <item>@string/carnivore</item>
+        <item>@string/omnivore</item>
+        <item>@string/detritivore</item>
+    </string-array>
 </resources>
