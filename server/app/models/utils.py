@@ -1,5 +1,7 @@
 from constants import *
 def makequestion(data):
+	if len(data.keys()) == 0:
+		raise Exception("Error","No data sent")			
 	question = "What animal is "
 	if free_question_key in data:
                 question = data[free_question_key]

@@ -6,6 +6,7 @@ from flask import jsonify
 @app.route('/v1/user_question')
 def user_question():
         headers = request.headers
+	print headers
 	question = utils.makequestion(headers)
 	response = watson.askWatson(question)
 	customised_response = jsonify({"answer":response})
