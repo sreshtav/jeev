@@ -24,14 +24,17 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".SelectPath"
+            android:name=".SelectPathActivity"
             android:label="@string/title_activity_select_path"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".FormActivity"
             android:label="@string/title_activity_form"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AnswerActivity"
+            android:label="@string/title_activity_answer"
             android:theme="@style/AppTheme.NoActionBar"></activity>
-
     </application>
 
 </manifest>

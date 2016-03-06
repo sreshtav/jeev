@@ -6,4 +6,5 @@
     <color name="colorbackground">#cbfffa</color>
     <color name="colorButton">#21b6a8</color>
     <color name="colorLabel">#ffffff</color>
+    <color name="colorDanger">#ff0000</color>
 </resources>

@@ -1,10 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.jeev.cs8803.jeevapp.SelectPathActivity">
+    tools:context="com.jeev.cs8803.jeevapp.AnswerActivity">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -33,27 +34,45 @@
             android:orientation="vertical"
             android:layout_gravity="center_vertical">
 
+            <TextView
+                android:id="@+id/answer_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/answer_label"
+                android:textSize="10pt">
+            </TextView>
+
+            <TextView
+                android:id="@+id/answer"
+                android:layout_width="match_parent"
+                android:layout_marginTop="16dp"
+                android:scrollbars="vertical"
+                android:layout_height="100pt"
+                android:textSize="10pt">
+            </TextView>
+
             <Button
-                android:id="@+id/select_question"
+                android:id="@+id/next_question"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:background="@color/colorButton"
                 android:textColor="@color/colorLabel"
-                android:text="@string/action_question"
+                android:text="@string/action_ask_another_question"
                 android:textStyle="bold" />
 
             <Button
-                android:id="@+id/select_form"
+                android:id="@+id/exit"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:background="@color/colorButton"
+                android:background="@color/colorDanger"
                 android:textColor="@color/colorLabel"
-                android:text="@string/action_form"
+                android:text="@string/action_exit"
                 android:textStyle="bold" />
+
         </LinearLayout>
     </ScrollView>
 

@@ -85,7 +85,7 @@
                 <EditText
                     android:id="@+id/body_color_value"
                     android:layout_height="wrap_content"
-                    android:hint="Color"
+                    android:hint="(eg. Orange)"
                     android:inputType="textPersonName"
                     android:layout_width="wrap_content">
                 </EditText>
@@ -109,7 +109,7 @@
                 <EditText
                     android:id="@+id/body_coat_value"
                     android:layout_height="wrap_content"
-                    android:hint="Color"
+                    android:hint="(eg. Long black stripes)"
                     android:inputType="textPersonName"
                     android:layout_width="wrap_content">
                 </EditText>
