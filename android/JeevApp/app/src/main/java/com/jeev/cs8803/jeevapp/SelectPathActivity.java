@@ -9,7 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.Button;
 
-public class SelectPath extends AppCompatActivity {
+public class SelectPathActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,10 +22,18 @@ public class SelectPath extends AppCompatActivity {
             getSupportActionBar().setTitle("Jeev");
         }
 
-        Button mEmailSignInButton = (Button) findViewById(R.id.select_form);
-        mEmailSignInButton.setOnClickListener(new View.OnClickListener() {
+        Button mFormButton = (Button) findViewById(R.id.select_form);
+        mFormButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View arg0) {
                 Intent myIntent = new Intent(getApplicationContext(), FormActivity.class);
+                startActivity(myIntent);
+            }
+        });
+
+        Button mQuestionButton = (Button) findViewById(R.id.select_question);
+        mQuestionButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View arg0) {
+                Intent myIntent = new Intent(getApplicationContext(), TextAndAudioActivity.class);
                 startActivity(myIntent);
             }
         });

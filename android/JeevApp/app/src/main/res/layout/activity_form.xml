@@ -85,7 +85,7 @@
                 <EditText
                     android:id="@+id/body_color_value"
                     android:layout_height="wrap_content"
-                    android:hint="Color"
+                    android:hint="(eg. Orange)"
                     android:inputType="textPersonName"
                     android:layout_width="wrap_content">
                 </EditText>
@@ -109,7 +109,7 @@
                 <EditText
                     android:id="@+id/body_coat_value"
                     android:layout_height="wrap_content"
-                    android:hint="Color"
+                    android:hint="(eg. Long black stripes)"
                     android:inputType="textPersonName"
                     android:layout_width="wrap_content">
                 </EditText>
@@ -133,15 +133,121 @@
                 <EditText
                     android:id="@+id/pattern_on_body_value"
                     android:layout_height="wrap_content"
-                    android:hint="Color"
+                    android:hint="(eg. Fur)"
                     android:inputType="textPersonName"
                     android:layout_width="wrap_content">
                 </EditText>
 
             </LinearLayout>
 
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <CheckBox
+                    android:id="@+id/can_swim_value"
+                    android:layout_height="wrap_content"
+                    android:text="@string/can_swim"
+                    android:layout_width="fill_parent"
+                    android:textSize="10pt">
+                </CheckBox>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/eating_habits_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/eating_habits_label"
+                    android:textSize="10pt">
+                </TextView>
+
+                <Spinner
+                    android:id="@+id/eating_habits_value"
+                    android:layout_height="40px"
+                    android:prompt="@string/centimeter"
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/colorLabel"
+                    android:textSize="10pt"
+                    android:entries="@array/eating_habits_list">
+                </Spinner>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/teeth_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/teeth_label"
+                    android:textSize="10pt">
+                </TextView>
+
+                <EditText
+                    android:id="@+id/teeth_value"
+                    android:layout_height="wrap_content"
+                    android:hint="(eg. Sharp/Fanged)"
+                    android:inputType="textPersonName"
+                    android:layout_width="wrap_content">
+                </EditText>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tail_label"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/tail_label"
+                    android:textSize="10pt">
+                </TextView>
+
+                <EditText
+                    android:id="@+id/tail_value"
+                    android:layout_height="wrap_content"
+                    android:hint="(eg. Long black furry tail)"
+                    android:inputType="textPersonName"
+                    android:layout_width="wrap_content">
+                </EditText>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_gravity="center_vertical">
+
+                <CheckBox
+                    android:id="@+id/nearby"
+                    android:layout_height="wrap_content"
+                    android:text="@string/nearby"
+                    android:layout_width="fill_parent"
+                    android:textSize="10pt">
+                </CheckBox>
+
+            </LinearLayout>
+
             <Button
-                android:id="@+id/select_question"
+                android:id="@+id/submit"
                 style="?android:textAppearanceSmall"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"

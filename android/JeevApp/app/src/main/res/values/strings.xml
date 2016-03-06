@@ -1,6 +1,5 @@
 <resources>
     <string name="app_name">Jeev</string>
-
     <string name="prompt_email">Username</string>
     <string name="prompt_password">Password</string>
     <string name="action_sign_in">Login</string>
@@ -9,9 +8,7 @@
     <string name="error_invalid_password">This password is too short</string>
     <string name="error_incorrect_password">This password is incorrect</string>
     <string name="error_field_required">This field is required</string>
-    <string name="permission_rationale">"Contacts permissions are needed for providing email
-        completions."
-    </string>
+    <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="title_activity_select_path">SelectPath</string>
     <string name="action_form">Identify an Animal</string>
     <string name="action_question">Ask a Question</string>
@@ -24,5 +21,20 @@
     <string name="feet">feet</string>
     <string name="body_color_label">Body Color</string>
     <string name="body_coat_label">Body Coat</string>
-    <string name="pattern_on_body_label">Body Coat</string>
+    <string name="pattern_on_body_label">Pattern on Body</string>
+    <string name="can_swim">Can swim?</string>
+    <string name="eating_habits_label">Eating Habits</string>
+    <string name="teeth_label">Teeth</string>
+    <string name="tail_label">Tail</string>
+    <string name="nearby">Nearby?</string>
+    <string name="carnivore">Carnivore</string>
+    <string name="herbivore">Herbivore</string>
+    <string name="omnivore">Omnivore</string>
+    <string name="detritivore">Detritivore</string>
+    <string name="title_activity_answer">AnswerActivity</string>
+    <string name="action_ask_another_question">Ask Another Question</string>
+    <string name="action_exit">Exit</string>
+    <string name="answer_label">Your answer to the question is - </string>
+    <string name="question_label">Please input your question here - </string>
+    <string name="title_activity_text_and_audio">TextAndAudioActivity</string>
 </resources>
