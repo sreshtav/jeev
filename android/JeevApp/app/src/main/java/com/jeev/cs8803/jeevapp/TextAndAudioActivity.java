@@ -21,7 +21,7 @@ public class TextAndAudioActivity extends AppCompatActivity {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             Intent intent = new Intent(getBaseContext(), AnswerActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);;
-            intent.putExtra("RESPONSE", response); //
+            intent.putExtra("RESPONSE", response);
             startActivity(intent);
         }
     };
