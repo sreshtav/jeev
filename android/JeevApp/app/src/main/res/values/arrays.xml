@@ -10,5 +10,6 @@
         <item>@string/carnivore</item>
         <item>@string/omnivore</item>
         <item>@string/detritivore</item>
+        <item>@string/not_sure</item>
     </string-array>
 </resources>

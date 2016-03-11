@@ -4,23 +4,32 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 public class TextAndAudioActivity extends AppCompatActivity {
 
     private String response = "test";
 
+    private String encoder (String text) {
+        try {
+            return URLEncoder.encode(text, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
     private Handler messageHandler = new Handler() {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            Intent intent = new Intent(getBaseContext(), AnswerActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);;
+            Intent intent = new Intent(getBaseContext(), AnswerActivity.class);
             intent.putExtra("RESPONSE", response);
             startActivity(intent);
         }
@@ -41,11 +50,12 @@ public class TextAndAudioActivity extends AppCompatActivity {
             public void onClick(View arg0) {
                 Log.d("Watson", "clicked");
                 EditText mEditText = (EditText) findViewById(R.id.question_value);
-                final String question = "qu_free_question="+mEditText.getText().toString();
+                final String question = "qu_free_question="+encoder(mEditText.getText().toString());
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
                         response = WatsonConnect.getAnswerFromWatson(question);
+                        Log.d("Watson", response);
                         messageHandler.sendEmptyMessage(0);
                     }
                 });

@@ -46,8 +46,10 @@
                 android:id="@+id/answer"
                 android:layout_width="match_parent"
                 android:layout_marginTop="16dp"
+                android:maxLines = "13"
+                android:layout_weight="0.75"
                 android:scrollbars="vertical"
-                android:layout_height="100pt"
+                android:layout_height="150pt"
                 android:textSize="10pt">
             </TextView>
 

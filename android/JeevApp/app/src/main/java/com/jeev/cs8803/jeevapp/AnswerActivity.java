@@ -6,10 +6,15 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
+import android.util.JsonReader;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class AnswerActivity extends AppCompatActivity {
 
@@ -24,9 +29,14 @@ public class AnswerActivity extends AppCompatActivity {
         }
 
         String response = getIntent().getExtras().getString("RESPONSE");
-
-        TextView mAnswerTextView = (TextView) findViewById(R.id.answer);
-        mAnswerTextView.setText(response);
+        try {
+            JSONObject reader = new JSONObject(response);
+            TextView mAnswerTextView = (TextView) findViewById(R.id.answer);
+            mAnswerTextView.setText(reader.getString("answer"));
+            mAnswerTextView.setMovementMethod(new ScrollingMovementMethod());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
 
         Button mNextQuestionButton = (Button) findViewById(R.id.next_question);
         mNextQuestionButton.setOnClickListener(new View.OnClickListener() {

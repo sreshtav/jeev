@@ -132,7 +132,7 @@
                     <EditText
                         android:id="@+id/body_coat_value"
                         android:layout_height="wrap_content"
-                        android:hint="(eg. Long black stripes)"
+                        android:hint="(eg. Fur)"
                         android:inputType="textPersonName"
                         android:layout_width="wrap_content"
                         android:textSize="10pt">
@@ -164,7 +164,7 @@
                     <EditText
                         android:id="@+id/pattern_on_body_value"
                         android:layout_height="wrap_content"
-                        android:hint="(eg. Fur)"
+                        android:hint="(eg. Black stripes)"
                         android:inputType="textPersonName"
                         android:layout_width="wrap_content"
                         android:textSize="10pt">
