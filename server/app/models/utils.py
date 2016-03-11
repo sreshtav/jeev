@@ -8,9 +8,9 @@ def makequestion(data):
         else:
                 question_data = {}
                 for key in data:
-                	if form_key in key and key.index(form_key) == 0:
+                	if form_key in key and key.index(form_key) == 0 and data[key] != 'false' and len(data[key]) >1:
                    	    key_new = (key.split(form_key)[1]).lower()
-                        question_data[key_new] = data[key]
+             	            question_data[key_new] = data[key]
 		for key in question_data:
 			question += question_data[key] + " and "
 		question = question[:-4]
