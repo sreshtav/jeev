@@ -31,6 +31,7 @@
     <string name="herbivore">Herbivore</string>
     <string name="omnivore">Omnivore</string>
     <string name="detritivore">Detritivore</string>
+    <string name="not_sure">Not sure</string>
     <string name="title_activity_answer">AnswerActivity</string>
     <string name="action_ask_another_question">Ask Another Question</string>
     <string name="action_exit">Exit</string>

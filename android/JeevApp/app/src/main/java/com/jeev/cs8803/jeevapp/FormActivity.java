@@ -12,19 +12,35 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Spinner;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.net.URLEncoder;
+import java.util.Random;
 
 public class FormActivity extends AppCompatActivity {
 
-    private String response = "test";
+    private String response;
 
     private Handler messageHandler = new Handler() {
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
-            Intent intent = new Intent(getBaseContext(), AnswerActivity.class).setFlags(Intent.FLAG_ACTIVITY_REORDER_TO_FRONT);;
-            intent.putExtra("RESPONSE", response); //
+            Intent intent = new Intent(getBaseContext(), AnswerActivity.class);
+            intent.putExtra("RESPONSE", response);
             startActivity(intent);
         }
     };
+
+    private String encoder (String text) {
+        try {
+            return URLEncoder.encode(text, "UTF-8");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,7 +68,7 @@ public class FormActivity extends AppCompatActivity {
                 mEdit = (EditText)findViewById(R.id.pattern_on_body_value);
                 String patternOnBody = mEdit.getText().toString();
                 CheckBox mCheckBox = (CheckBox)findViewById(R.id.can_swim_value);
-                String canSwim = mCheckBox.getText().toString();
+                boolean canSwim = mCheckBox.isChecked();
                 mSpinner = (Spinner)findViewById(R.id.eating_habits_value);
                 String eatingHabits = mSpinner.getSelectedItem().toString();
                 mEdit = (EditText)findViewById(R.id.teeth_value);
@@ -60,10 +76,11 @@ public class FormActivity extends AppCompatActivity {
                 mEdit = (EditText)findViewById(R.id.tail_value);
                 String tail = mEdit.getText().toString();
                 mCheckBox = (CheckBox)findViewById(R.id.nearby);
-                String nearby = mCheckBox.getText().toString();
+                boolean nearby = mCheckBox.isChecked();
                 //if nearby get GPS coordinates
-                final String question = "qu_size="+size+"&qu_size_units="+sizeUnits+"&qu_body_color="+bodyColor+"&qu_body_coat="+bodyCoat+"&qu_pattern_on_body="+patternOnBody+
-                        "&qu_can_swim="+canSwim+"&qu_eating_habits="+eatingHabits+"&qu_teeth="+teeth+"&qu_tail="+tail+"&qu_nearby="+nearby;
+                final String question = "qu_size="+encoder(size)+"&qu_size_units="+encoder(sizeUnits)+"&qu_body_color="+encoder(bodyColor)+"&qu_body_coat="+encoder(bodyCoat)+"&qu_pattern_on_body="+encoder(patternOnBody)+
+                        "&qu_can_swim="+canSwim+"&qu_eating_habits="+encoder(eatingHabits)+"&qu_teeth="+encoder(teeth)+"&qu_tail="+encoder(tail)+"&qu_nearby="+nearby;
+                Log.d("Watson", question);
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
