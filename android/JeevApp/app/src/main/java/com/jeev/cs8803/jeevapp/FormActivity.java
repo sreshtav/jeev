@@ -78,8 +78,15 @@ public class FormActivity extends AppCompatActivity {
                 mCheckBox = (CheckBox)findViewById(R.id.nearby);
                 boolean nearby = mCheckBox.isChecked();
                 //if nearby get GPS coordinates
-                final String question = "qu_size="+encoder(size)+"&qu_size_units="+encoder(sizeUnits)+"&qu_body_color="+encoder(bodyColor)+"&qu_body_coat="+encoder(bodyCoat)+"&qu_pattern_on_body="+encoder(patternOnBody)+
-                        "&qu_can_swim="+canSwim+"&qu_eating_habits="+encoder(eatingHabits)+"&qu_teeth="+encoder(teeth)+"&qu_tail="+encoder(tail)+"&qu_nearby="+nearby;
+                String tempQuestion = "";
+                if (!size.isEmpty()) {
+                    tempQuestion = "qu_size="+encoder(size)+"&qu_size_units="+encoder(sizeUnits)+"&qu_body_color="+encoder(bodyColor)+"&qu_body_coat="+encoder(bodyCoat)+"&qu_pattern_on_body="+encoder(patternOnBody)+
+                            "&qu_can_swim="+canSwim+"&qu_eating_habits="+encoder(eatingHabits)+"&qu_teeth="+encoder(teeth)+"&qu_tail="+encoder(tail)+"&qu_nearby="+nearby;
+                } else {
+                    tempQuestion = "&qu_body_color="+encoder(bodyColor)+"&qu_body_coat="+encoder(bodyCoat)+"&qu_pattern_on_body="+encoder(patternOnBody)+
+                            "&qu_can_swim="+canSwim+"&qu_eating_habits="+encoder(eatingHabits)+"&qu_teeth="+encoder(teeth)+"&qu_tail="+encoder(tail)+"&qu_nearby="+nearby;
+                }
+                final String question = tempQuestion;
                 Log.d("Watson", question);
                 Thread thread = new Thread(new Runnable() {
                     @Override
