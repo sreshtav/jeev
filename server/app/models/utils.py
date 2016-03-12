@@ -5,7 +5,7 @@ import itertools
 def filter_data(data):
 	usabledata = {}
 	for key in data:
-		if form_key in key and key.index(form_key) == 0 and data[key] != 'false' and len(data[key]) >1:
+		if form_key in key and key.index(form_key) == 0 and data[key] != 'false' and data[key] != 'Not sure' and len(data[key]) >1:
 	   		key_new = (key.split(form_key)[1]).lower()
 		        usabledata[key_new] = data[key]
 	return usabledata
