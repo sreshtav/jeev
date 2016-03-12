@@ -23,7 +23,9 @@ def askWatson(question):
         # Print out the best answer
         jsonResponse = response.json()
         evidences = jsonResponse["question"]["evidencelist"]
-
+        final_response = {}
+        for e in evidences:
+            final_response[e['metadataMap']['DOCNO']] = {text:e['text'],count:1}
     except:
         
         print("Oops!  Ran into an error.")
@@ -32,14 +34,14 @@ def askWatson(question):
         
     # jsonResponse = response.json()
 
-    if('text' not in evidences[0]):
-        print 'Answer not found'
-        return "Answer not found"
+    # if('text' not in evidences[0]):
+    #     print 'Answer not found'
+    #     return "Answer not found"
 
-    firstAnswer = evidences[0]["text"]
+    # firstAnswer = evidences[0]["text"]
 
     print("Watson's answer: " + firstAnswer)
-    return firstAnswer
+    return final_response
 
 
 def main():
