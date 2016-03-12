@@ -35,4 +35,5 @@ def makequestions(data):
 	return questions
 
 def filteranswer(answers):
-	return answers[0]
+	key = sorted(answers,key=lambda x:answers[x]['count'],reverse=True)[0]
+	return answers[key]['text'] 

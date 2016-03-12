@@ -7,16 +7,14 @@ from flask import jsonify
 def user_question():
 	arguments = request.args
 	questions = utils.makequestions(arguments)
-	responses = list()
+	responses = {}
 	for question in questions:
 		res_ques = watson.askWatson(question)
-		print res_ques
 		for r in res_ques:
 			if r in responses:
-				responses[r].count += 1
+				responses[r]['count'] += 1
 			else:
 				responses[r] = res_ques[r]
-	print responses
 	fin_response = utils.filteranswer(responses)
 	customised_response = jsonify({"answer":fin_response})
    	return customised_response
