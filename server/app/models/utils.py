@@ -1,17 +1,39 @@
 from constants import *
-def makequestion(data):
-	if len(data.keys()) == 0:
-		raise Exception("Error","No data sent")			
-	question = "What animal is "
-	if free_question_key in data:
-                question = data[free_question_key]
-        else:
-                question_data = {}
-                for key in data:
-                	if form_key in key and key.index(form_key) == 0 and data[key] != 'false' and len(data[key]) >1:
-                   	    key_new = (key.split(form_key)[1]).lower()
-             	            question_data[key_new] = data[key]
-		for key in question_data:
-			question += question_data[key] + " and "
+import itertools
+
+
+def filter_data(data):
+	usabledata = {}
+	for key in data:
+		if form_key in key and key.index(form_key) == 0 and data[key] != 'false' and data[key] != 'Not sure' and len(data[key]) >1:
+	   		key_new = (key.split(form_key)[1]).lower()
+		        usabledata[key_new] = data[key]
+	return usabledata
+
+def makequestion(data,no_of_keys):
+	data = filter_data(data)
+	combs = list(itertools.combinations(data.keys(),no_of_keys))
+	print no_of_keys,combs
+	sub_questions = list()
+	for keys in combs:
+		question = "What animal is "
+		for key in keys:
+			question += data[key] + " and "
 		question = question[:-4]
-	return question
+		sub_questions.append(question)
+	return sub_questions
+
+def makequestions(data):
+	if len(data.keys()) == 0:
+		raise Exception("Error","No data sent")
+	keys = [2,3,4]
+	questions = list()
+	for i in keys:
+		q_s = makequestion(data,i)
+		for q in q_s:
+			questions.append(q)
+	return questions
+
+def filteranswer(answers):
+	key = sorted(answers,key=lambda x:answers[x]['count'],reverse=True)[0]
+	return answers[key]['text'] 

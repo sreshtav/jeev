@@ -5,11 +5,19 @@ from flask import jsonify
 
 @app.route('/v1/user_question')
 def user_question():
-        arguments = request.args
-	question = utils.makequestion(arguments)
-	response = watson.askWatson(question)
-	customised_response = jsonify({"answer":response})
-       	return customised_response
+	arguments = request.args
+	questions = utils.makequestions(arguments)
+	responses = {}
+	for question in questions:
+		res_ques = watson.askWatson(question)
+		for r in res_ques:
+			if r in responses:
+				responses[r]['count'] += 1
+			else:
+				responses[r] = res_ques[r]
+	fin_response = utils.filteranswer(responses)
+	customised_response = jsonify({"answer":fin_response})
+   	return customised_response
 
 @app.errorhandler(500)
 def internal_server_error(error):
