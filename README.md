@@ -1,10 +1,10 @@
 # Jeev - CC 8803
 
 ## Team Members 
-*Raj Prateek Kosaraju
-*Shruti Bhati
-*Soumya Gosukonda
-*Sreshta Vijayaraghavan
+* Raj Prateek Kosaraju
+* Shruti Bhati
+* Soumya Gosukonda
+* Sreshta Vijayaraghavan
 
 ## Project Structure  
 * android: Front End code developed in Android Studio in Java
