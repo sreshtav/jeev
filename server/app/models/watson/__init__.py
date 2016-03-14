@@ -2,6 +2,7 @@
 import json
 import requests
 def askWatson(question):
+    print question
     data={"question": {"questionText" : question}}
 
     username="gt2_administrator"
