@@ -27,7 +27,7 @@ def askWatson(question):
             if len(e.keys()):
                 doc_no = e['metadataMap']['DOCNO'].encode("utf-8")
                 e_text = e['text'].encode("utf-8")
-                final_response[doc_no] ={"text":'e_text',"count":1}  
+                final_response[doc_no] ={"text":e_text,"count":1}  
     except:
         print("Oops!  Ran into an error.")
         print response.status_code

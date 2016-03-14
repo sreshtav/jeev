@@ -5,7 +5,7 @@ import itertools
 def filter_data(data):
 	usabledata = {}
 	for key in data:
-		if form_key in key and key.index(form_key) == 0 and data[key] != 'false' and len(data[key]) >1:
+		if form_key in key and key.index(form_key) == 0 and data[key] != 'false' and data[key] != 'Not sure' and len(data[key]) >1:
 	   		key_new = (key.split(form_key)[1]).lower()
 		        usabledata[key_new] = data[key]
 	return usabledata
@@ -35,5 +35,8 @@ def makequestions(data):
 	return questions
 
 def filteranswer(answers):
-	key = sorted(answers,key=lambda x:answers[x]['count'],reverse=True)[0]
-	return answers[key]['text'] 
+	if len(answers.keys()):
+		key = sorted(answers,key=lambda x:answers[x]['count'],reverse=True)[0]
+		return answers[key]['text'] 
+	else:	
+		return "No Answer found"
