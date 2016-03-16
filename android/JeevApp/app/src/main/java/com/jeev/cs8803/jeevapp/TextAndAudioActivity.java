@@ -19,8 +19,8 @@ public class TextAndAudioActivity extends AppCompatActivity {
 
     private String encoder (String text) {
         try {
-            return URLEncoder.encode(text, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
+            return URLEncoder.encode(text, "UTF-8").replace("+", "%20");
+        } catch (UnsupportedEncodingException e) { 
             e.printStackTrace();
         }
         return null;
@@ -51,6 +51,7 @@ public class TextAndAudioActivity extends AppCompatActivity {
                 Log.d("Watson", "clicked");
                 EditText mEditText = (EditText) findViewById(R.id.question_value);
                 final String question = "qu_free_question="+encoder(mEditText.getText().toString());
+                //final String question = "qu_free_question="+mEditText.getText().toString();
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {

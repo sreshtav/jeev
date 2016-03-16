@@ -35,7 +35,7 @@ public class FormActivity extends AppCompatActivity {
 
     private String encoder (String text) {
         try {
-            return URLEncoder.encode(text, "UTF-8");
+            return URLEncoder.encode(text, "UTF-8").replace("+", "%20");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
