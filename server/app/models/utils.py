@@ -5,7 +5,7 @@ import itertools
 def filter_data(data):
 	usabledata = {}
 	for key in data:
-		if form_key in key and key.index(form_key) == 0 and data[key] != 'false' and data[key] != 'Not sure' and len(data[key]) >1:
+		if form_key in key and key.index(form_key) == 0 and data[key] != 'true' and data[key] != 'cm' and data[key] != 'false' and data[key] != 'Not sure' and len(data[key]) >1:
 	   		key_new = (key.split(form_key)[1]).lower()
 		        usabledata[key_new] = data[key]
 	return usabledata
@@ -24,16 +24,25 @@ def makequestion(data,no_of_keys):
 	return sub_questions
 
 def makequestions(data):
+	questions = list()
 	if len(data.keys()) == 0:
 		raise Exception("Error","No data sent")
-	keys = [2,3,4]
-	questions = list()
-	for i in keys:
-		q_s = makequestion(data,i)
-		for q in q_s:
-			questions.append(q)
+	if len(data.keys()) == 1:
+		if free_question_key in  data.keys()[0]:
+			key = data.keys()[0]
+			if data[key] != 'false' and data[key] != 'Not sure' and len(data[key]) >1:
+				questions.append(data[key])
+	else:
+		keys = [2,3,4]
+		for i in keys:
+			q_s = makequestion(data,i)
+			for q in q_s:
+				questions.append(q)
 	return questions
 
 def filteranswer(answers):
-	key = sorted(answers,key=lambda x:answers[x]['count'],reverse=True)[0]
-	return answers[key]['text'] 
+	if len(answers.keys()):
+		key = sorted(answers,key=lambda x:answers[x]['count'],reverse=True)[0]
+		return answers[key]['text'] 
+	else:	
+		return "No Answer found"
