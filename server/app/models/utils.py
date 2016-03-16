@@ -24,14 +24,20 @@ def makequestion(data,no_of_keys):
 	return sub_questions
 
 def makequestions(data):
+	questions = list()
 	if len(data.keys()) == 0:
 		raise Exception("Error","No data sent")
-	keys = [2,3,4]
-	questions = list()
-	for i in keys:
-		q_s = makequestion(data,i)
-		for q in q_s:
-			questions.append(q)
+	if len(data.keys()) == 1:
+		if free_question_key in  data.keys()[0]:
+			key = data.keys()[0]
+			if data[key] != 'false' and data[key] != 'Not sure' and len(data[key]) >1:
+				questions.append(data[key])
+	else:
+		keys = [2,3,4]
+		for i in keys:
+			q_s = makequestion(data,i)
+			for q in q_s:
+				questions.append(q)
 	return questions
 
 def filteranswer(answers):
