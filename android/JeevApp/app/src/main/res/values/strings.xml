@@ -26,6 +26,7 @@
     <string name="eating_habits_label">Eating Habits</string>
     <string name="teeth_label">Teeth</string>
     <string name="tail_label">Tail</string>
+    <string name="native_label">Native To</string>
     <string name="nearby">Nearby?</string>
     <string name="carnivore">Carnivore</string>
     <string name="herbivore">Herbivore</string>
@@ -36,6 +37,8 @@
     <string name="action_ask_another_question">Ask Another Question</string>
     <string name="action_exit">Exit</string>
     <string name="answer_label">Your answer to the question is - </string>
-    <string name="question_label">Please input your question here - </string>
+    <string name="question_label">Input your question </string>
     <string name="title_activity_text_and_audio">TextAndAudioActivity</string>
+    <string name="speech_prompt">Say something&#8230;</string>
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
 </resources>

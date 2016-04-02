@@ -42,15 +42,37 @@
             android:textSize="10pt">
         </TextView>
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:layout_gravity="center_horizontal">
+
         <EditText
             android:id="@+id/question_value"
-            android:layout_height="100pt"
+            android:layout_height="75pt"
+            android:layout_width="0dp"
+            android:layout_weight=".85"
             android:hint="(eg. What do tigers eat?)"
-            android:inputType="textPersonName"
             android:layout_marginTop="16dp"
             android:scrollbars="vertical"
-            android:layout_width="match_parent">
+            android:scrollHorizontally="false"
+            android:ellipsize="none"
+            android:inputType="textCapSentences|textMultiLine"
+            android:maxLines="4"
+            android:layout_gravity="left">
         </EditText>
+
+        <ImageButton
+            android:id="@+id/audio"
+            android:scaleType="fitCenter"
+            android:layout_width="0dp"
+            android:layout_weight=".15"
+            android:layout_height="50dip"
+            android:background="@null"
+            android:src="@drawable/ico_mic"
+            android:layout_gravity="center" />
+            </LinearLayout>
 
         <Button
             android:id="@+id/submit"
