@@ -77,7 +77,9 @@ public class TextAndAudioActivity extends AppCompatActivity {
             getSupportActionBar().setTitle("Jeev");
         }
 
-        animal = getIntent().getExtras().getString("ANIMAL");
+        if (getIntent().getExtras() != null) {
+            animal = getIntent().getExtras().getString("ANIMAL");
+        }
         if (! animal.isEmpty()) {
             Toast.makeText(getApplicationContext(), animal, Toast.LENGTH_SHORT).show();
             Thread thread = new Thread(new Runnable() {
@@ -102,7 +104,7 @@ public class TextAndAudioActivity extends AppCompatActivity {
                 EditText mEditText = (EditText) findViewById(R.id.question_value);
                 String animalString = "";
                 if (!animal.isEmpty()) {
-                    animalString = "&qu_animal_name=" + animal;
+                    animalString = "&qu_animal_name=" + animal.replace(" ", "%20");
                 }
                 final String question = "qu_free_question=" + encoder(mEditText.getText().toString() + animalString);
                 Thread thread = new Thread(new Runnable() {
