@@ -6,7 +6,7 @@ from flask import jsonify
 @app.route('/v1/user_question')
 def user_question():
 	arguments = request.args
-	questions = utils.makequestions(arguments)
+	questions,context_animal = utils.makequestions(arguments)
 	responses = {}
 	for question in questions:
 		res_ques = watson.askWatson(question)
@@ -15,8 +15,8 @@ def user_question():
 				responses[r]['count'] += 1
 			else:
 				responses[r] = res_ques[r]
-	fin_response = utils.filteranswer(responses)
-	customised_response = jsonify({"answer":fin_response})
+	fin_response = utils.filteranswer(responses,context_animal)
+	customised_response = jsonify(fin_response)
    	return customised_response
 
 @app.errorhandler(500)
