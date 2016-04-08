@@ -10,8 +10,8 @@
     <string name="error_field_required">This field is required</string>
     <string name="permission_rationale">"Contacts permissions are needed for providing email completions."</string>
     <string name="title_activity_select_path">SelectPath</string>
-    <string name="action_form">Identify an Animal</string>
-    <string name="action_question">Ask a Question</string>
+    <string name="action_form">Form Based</string>
+    <string name="action_question">Text Based</string>
     <string name="title_activity_form">FormActivity</string>
     <string name="action_watson">Submit</string>
     <string name="size_label">Size</string>
@@ -26,6 +26,7 @@
     <string name="eating_habits_label">Eating Habits</string>
     <string name="teeth_label">Teeth</string>
     <string name="tail_label">Tail</string>
+    <string name="native_label">Native To</string>
     <string name="nearby">Nearby?</string>
     <string name="carnivore">Carnivore</string>
     <string name="herbivore">Herbivore</string>
@@ -33,9 +34,12 @@
     <string name="detritivore">Detritivore</string>
     <string name="not_sure">Not sure</string>
     <string name="title_activity_answer">AnswerActivity</string>
-    <string name="action_ask_another_question">Ask Another Question</string>
-    <string name="action_exit">Exit</string>
+    <string name="action_ask_follow_up_question">Ask Follow Up Question</string>
+    <string name="action_start_over">Start Over</string>
     <string name="answer_label">Your answer to the question is - </string>
-    <string name="question_label">Please input your question here - </string>
+    <string name="question_type_label">Select the type of question you\'d like to ask :</string>
+    <string name="question_label">Input your question </string>
     <string name="title_activity_text_and_audio">TextAndAudioActivity</string>
+    <string name="speech_prompt">Say something&#8230;</string>
+    <string name="speech_not_supported">Sorry! Your device doesn\'t support speech input</string>
 </resources>
