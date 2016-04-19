@@ -81,7 +81,7 @@ public class TextAndAudioActivity extends AppCompatActivity {
             animal = getIntent().getExtras().getString("ANIMAL");
         }
         if (! animal.isEmpty()) {
-            Toast.makeText(getApplicationContext(), animal, Toast.LENGTH_SHORT).show();
+            //Toast.makeText(getApplicationContext(), animal, Toast.LENGTH_SHORT).show();
             Thread thread = new Thread(new Runnable() {
                 @Override
                 public void run() {

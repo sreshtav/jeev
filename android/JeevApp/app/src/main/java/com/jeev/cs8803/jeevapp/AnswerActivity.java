@@ -23,6 +23,7 @@ import android.widget.Toast;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
 import java.io.InputStream;
 import java.io.InputStreamReader;
@@ -55,7 +56,7 @@ public class AnswerActivity extends AppCompatActivity {
             mAnswerTextView.setMovementMethod(new ScrollingMovementMethod());
             animal = reader.getString("animal");
             if (! animal.isEmpty()) {
-                Toast.makeText(getApplicationContext(), animal, Toast.LENGTH_SHORT).show();
+                //Toast.makeText(getApplicationContext(), animal, Toast.LENGTH_SHORT).show();
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
@@ -109,7 +110,12 @@ public class AnswerActivity extends AppCompatActivity {
             imageResponse = result.toString();
             rd.close();
             JSONObject reader = new JSONObject(imageResponse);
-            JSONObject image = (JSONObject) reader.getJSONArray("value").get(0);
+            JSONObject image;
+            if (animal.equalsIgnoreCase("virginia opossum")) {
+                image = (JSONObject) reader.getJSONArray("value").get(1);
+            } else {
+                image = (JSONObject) reader.getJSONArray("value").get(0);
+            }
             return image.getString("contentUrl");
         } catch (Exception e) {
             Log.e("HTTP GET:", e.toString());
@@ -130,7 +136,6 @@ public class AnswerActivity extends AppCompatActivity {
         protected Bitmap doInBackground(String... args) {
             try {
                 bitmap = BitmapFactory.decodeStream((InputStream) new URL(args[0]).getContent());
-
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -138,7 +143,6 @@ public class AnswerActivity extends AppCompatActivity {
         }
 
         protected void onPostExecute(Bitmap image) {
-
             if(image != null){
                 ScrollView scrollView = (ScrollView) findViewById(R.id.scroll_view);
                 BitmapDrawable bmpDrawable = new BitmapDrawable(getResources(), image);
