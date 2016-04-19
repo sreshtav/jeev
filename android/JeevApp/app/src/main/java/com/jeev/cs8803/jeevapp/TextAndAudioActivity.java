@@ -106,7 +106,8 @@ public class TextAndAudioActivity extends AppCompatActivity {
                 if (!animal.isEmpty()) {
                     animalString = "&qu_animal_name=" + animal.replace(" ", "%20");
                 }
-                final String question = "qu_free_question=" + encoder(mEditText.getText().toString() + animalString);
+                Log.d("AnimalString", animalString);
+                final String question = "qu_free_question=" + encoder(mEditText.getText().toString()) + animalString;
                 Thread thread = new Thread(new Runnable() {
                     @Override
                     public void run() {
