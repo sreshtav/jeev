@@ -35,7 +35,7 @@ public class FormActivity extends AppCompatActivity {
 
     private String encoder (String text) {
         try {
-            return URLEncoder.encode(text, "UTF-8");
+            return URLEncoder.encode(text, "UTF-8").replace("+", "%20");
         } catch (UnsupportedEncodingException e) {
             e.printStackTrace();
         }
@@ -78,13 +78,15 @@ public class FormActivity extends AppCompatActivity {
                 mCheckBox = (CheckBox)findViewById(R.id.nearby);
                 boolean nearby = mCheckBox.isChecked();
                 //if nearby get GPS coordinates
+                mEdit = (EditText)findViewById(R.id.native_value);
+                String nativeTo = mEdit.getText().toString();
                 String tempQuestion = "";
                 if (!size.isEmpty()) {
                     tempQuestion = "qu_size="+encoder(size)+"&qu_size_units="+encoder(sizeUnits)+"&qu_body_color="+encoder(bodyColor)+"&qu_body_coat="+encoder(bodyCoat)+"&qu_pattern_on_body="+encoder(patternOnBody)+
-                            "&qu_can_swim="+canSwim+"&qu_eating_habits="+encoder(eatingHabits)+"&qu_teeth="+encoder(teeth)+"&qu_tail="+encoder(tail)+"&qu_nearby="+nearby;
+                            "&qu_can_swim="+canSwim+"&qu_eating_habits="+encoder(eatingHabits)+"&qu_teeth="+encoder(teeth)+"&qu_tail="+encoder(tail)+"&qu_nearby="+nearby+"&qu_native="+encoder(nativeTo);
                 } else {
                     tempQuestion = "&qu_body_color="+encoder(bodyColor)+"&qu_body_coat="+encoder(bodyCoat)+"&qu_pattern_on_body="+encoder(patternOnBody)+
-                            "&qu_can_swim="+canSwim+"&qu_eating_habits="+encoder(eatingHabits)+"&qu_teeth="+encoder(teeth)+"&qu_tail="+encoder(tail)+"&qu_nearby="+nearby;
+                            "&qu_can_swim="+canSwim+"&qu_eating_habits="+encoder(eatingHabits)+"&qu_teeth="+encoder(teeth)+"&qu_tail="+encoder(tail)+"&qu_nearby="+nearby+"&qu_native="+encoder(nativeTo);
                 }
                 final String question = tempQuestion;
                 Log.d("Watson", question);

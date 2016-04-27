@@ -21,6 +21,7 @@ def askWatson(question):
 
         # Print out the best answer
         jsonResponse = response.json()
+	#print jsonResponse
         evidences = jsonResponse["question"]["evidencelist"]
         final_response = {}
         evidences = evidences[:5]

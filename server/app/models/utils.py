@@ -3,6 +3,9 @@ import itertools
 import nltk
 from nltk.corpus import wordnet as wn
 from operator import itemgetter
+import urllib
+
+
 def filter_data(data):
 	usabledata = {}
 	for key in data:
@@ -13,7 +16,6 @@ def filter_data(data):
 
 def makequestion(data,no_of_keys):
 	combs = list(itertools.combinations(data.keys(),no_of_keys))
-	print no_of_keys,combs
 	sub_questions = list()
 	for keys in combs:
 		question = "What animal is "
@@ -25,13 +27,24 @@ def makequestion(data,no_of_keys):
 
 def makequestions(data):
 	questions = list()
+	context_animal = ''
 	if len(data.keys()) == 0:
 		raise Exception("Error","No data sent")
-	if len(data.keys()) == 1:
-		if free_question_key in  data.keys()[0]:
-			key = data.keys()[0]
-			if data[key] != 'false' and data[key] != 'Not sure' and len(data[key]) >1:
-				questions.append(data[key])
+	if len(data.keys()) <= 2 and free_question_key in data.keys():
+		if 'qu_animal_name' in data.keys():
+			context_animal = data['qu_animal_name']
+		key = free_question_key
+		if data[key] != 'false' and data[key] != 'Not sure' and len(data[key]) >1:
+			ques = data[key]
+			if "their" in ques:
+				ques = ques.replace("their",context_animal+"'s")
+			elif "it" in ques:
+				ques = ques.replace("it",context_animal)
+			elif "they" in ques:
+				ques = ques.replace("they",context_animal+"s")
+			elif "them" in ques:
+				ques = ques.replace("them",context_animal+"s")
+			questions.append(ques)
 	else:
 		data = filter_data(data)
 		keys = [len(data.keys())]
@@ -39,7 +52,7 @@ def makequestions(data):
 			q_s = makequestion(data,i)
 			for q in q_s:
 				questions.append(q)
-	return questions
+	return questions,context_animal
 
 
 def highlight_answer(answer,questions):
@@ -87,11 +100,14 @@ def highlight_answer(answer,questions):
 	answer['indexes'] = sorted_scores_indexes
 	return answer
 
-def filteranswer(answers):
+def filteranswer(answers,context_animal):
 	ans = ''
 	if len(answers.keys()):
+		if context_animal and len(context_animal):
+			context_animal = urllib.unquote(context_animal)
+			answers = {k:v for k,v in answers.iteritems() if answers[k]['title'] == context_animal}
 		key = sorted(answers,key=lambda x:answers[x]['count'],reverse=True)[0]
 		ans = {"answer":answers[key]['text'],"animal":answers[key]['title']}
-	else:	
+	else:
 		ans = "No Answer found"
 	return ans

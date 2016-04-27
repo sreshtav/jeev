@@ -33,6 +33,14 @@
             android:orientation="vertical"
             android:layout_gravity="center_vertical">
 
+            <TextView
+                android:id="@+id/answer_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/question_type_label"
+                android:textSize="10pt">
+            </TextView>
+
             <Button
                 android:id="@+id/select_question"
                 style="?android:textAppearanceSmall"
