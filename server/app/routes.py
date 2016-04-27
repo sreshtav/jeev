@@ -16,7 +16,8 @@ def user_question():
 			else:
 				responses[r] = res_ques[r]
 	fin_response = utils.filteranswer(responses)
-	customised_response = jsonify({"answer":fin_response})
+	highlighted_answer = utils.highlight_answer(fin_response,questions)
+	customised_response = jsonify(highlighted_answer)
    	return customised_response
 
 @app.errorhandler(500)
