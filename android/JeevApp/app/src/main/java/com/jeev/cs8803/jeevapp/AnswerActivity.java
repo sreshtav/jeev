@@ -20,6 +20,7 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -29,6 +30,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 
 public class AnswerActivity extends AppCompatActivity {
 
@@ -51,6 +53,16 @@ public class AnswerActivity extends AppCompatActivity {
         String response = getIntent().getExtras().getString("RESPONSE");
         try {
             JSONObject reader = new JSONObject(response);
+            JSONArray jsonIndexes = reader.optJSONArray("indexes");
+            int[] indexes = new int[jsonIndexes.length()];
+            for (int i = 0; i < jsonIndexes.length(); ++i) {
+                indexes[i] = jsonIndexes.optInt(i);
+                Log.d("Answer", "value: " + indexes[i]);
+            }
+            Arrays.sort(indexes);
+            for (int i=0; i<indexes.length; i++) {
+                Log.d("Answer", "value: " + indexes[i]);
+            }
             TextView mAnswerTextView = (TextView) findViewById(R.id.answer);
             mAnswerTextView.setText(reader.getString("answer"));
             mAnswerTextView.setMovementMethod(new ScrollingMovementMethod());
@@ -155,6 +167,19 @@ public class AnswerActivity extends AppCompatActivity {
 
             }
         }
+    }
+
+    private String getShortenedAnswer (String answer, int[] indexes) {
+        String shortenedAnswer = "";
+        shortenedAnswer += ".....";
+        String[] sentences = answer.split("\\.");
+        Log.d("Answer", "after split length - " + sentences.length);
+        for (int i=0; i<indexes.length; i++) {
+            shortenedAnswer += sentences[indexes[i]];
+        }
+        shortenedAnswer += ".....";
+        Log.d("Answer", shortenedAnswer);
+        return shortenedAnswer;
     }
 
 }

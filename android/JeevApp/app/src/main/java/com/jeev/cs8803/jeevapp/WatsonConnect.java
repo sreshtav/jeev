@@ -16,7 +16,7 @@ public class WatsonConnect {
         String response = "";
         try {
             Log.d("Watson", "starting");
-            URL url = new URL("http://104.42.197.184/v1/user_question?"+ question);
+            URL url = new URL("http://52.37.58.111/v1/user_question?"+ question);
             //create the connection
             HttpURLConnection connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("GET");
