@@ -9,7 +9,7 @@
 ## Project Structure  
 * Jeev.apk: APK file of the app that can be installed on an Android device
 * android: Front End code developed in Android Studio in Java
-* server: Back End code in Python hosted on a server in Microsoft Azure. Provides connectivity to IBM Watson
+* server: Back End code in Python hosted on a server in the Amazon Web Service cloud. Provides connectivity to IBM Watson
 
 ## Installing the APK to an Android Device
 * Enable "Unknown Sources" on Android
